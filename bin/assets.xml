@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+<assets>
+	<basic>
+		
+	</basic>
+	<game>
+		<item alias="gameAssets">gameAssets.swf</item>
+	</game>
+</assets>
+<gameAssets>
+	<bg><![CDATA[bg01]]></bg>
+	<!--
+		across : if this build can be across, set it to true
+		
+		depth: if this build can be across, so should set its depth, decide player is on the top or under this build. if depth> 0, the build would be on the top of player.
+		
+		life: decide if the build can be destory. if life <0 or leave blank,it would not be destory.
+		
+		defence: if this build can be destory, can set its defence, so if player's fire power is less than defence, the player can not destory this build.until he got a more power weapon. vaule should big than zero.
+		
+		friction: make the player move slow or faster.
+		
+		
+	-->
+	<builds>
+		
+		<item id="block01" across="false" depth="1" life="0" defence="0" friction="0"></item>
+		<item id="block02" across="false" depth="1"></item>
+		<item id="block03" across="false" depth="1"></item>
+	</builds>
+</gameAssets>
+<maps>
+	<!-- format: map[0] is column, map[1] is row. others are tiles. map[n]'s type is int. if map[n] =0 is mean no build here. can be across, if map[n] is a int and more than 0, can find -->
+	<map><![CDATA[]]></map>
+</maps>
+</data>
