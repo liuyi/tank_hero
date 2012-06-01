@@ -16,17 +16,16 @@
     </define>
     <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'2012/6/1'</value>
+      <value>'2012/5/30'</value>
     </define>
     <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>D:\Dropbox\tank_hero\tank_hero\src</path-element>
-      <path-element>D:\Dropbox\tank_hero\tank_hero\lib</path-element>
-      <path-element>D:\Program Files\FlashDevelop\Library\AS3\classes</path-element>
+      <path-element>D:\liuyi\dropbox\tank_hero\tank_hero\src</path-element>
+      <path-element>d:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>D:\Dropbox\tank_hero\tank_hero\src\test\MapTest.as</path-element>
+    <path-element>D:\liuyi\dropbox\tank_hero\tank_hero\src\test\MapTest.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

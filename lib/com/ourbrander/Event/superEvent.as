@@ -12,27 +12,27 @@
 	 
 	*/
 	import flash.events.Event;
-	public class superEvent extends Event {
+	public class SuperEvent extends Event {
 		import flash.events.Event;
-		public var _content:Object;
-		public function superEvent(type:String,obj:Object=null,bubbles:Boolean=false,cancelable:Boolean=false):void {
+		private var _data:Object;
+		public function SuperEvent(type:String,obj:Object=null,bubbles:Boolean=false,cancelable:Boolean=false):void {
 			super(type,bubbles,cancelable);
 			
-			content=obj;
+			_data=obj;
 		}
 
-		public function set content(obj:Object):void {
-			_content=obj;
+		public function set data(obj:Object):void {
+			_data=obj;
 		}
-		public function get content():Object {
+		public function get data():Object {
 			
-			return _content;
+			return _data;
 		}
 		override public function clone():Event {
 			return new superEvent(type,content,bubbles,cancelable);
 		}
 		override public function toString():String {
-			return formatToString("superEvent","type","content","bubbles","cancelable","eventPhase");
+			return formatToString("SuperEvent","type","data","bubbles","cancelable","eventPhase");
 		}
 
 	}

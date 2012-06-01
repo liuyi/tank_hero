@@ -1,15 +1,20 @@
 package test 
 {
+	import com.ourbrander.components.BasicButton;
 	import com.ourbrander.data.DataManager;
 	import com.ourbrander.loader.EasyLoader;
 	import com.ourbrander.loader.EasyLoaderEvent;
+	import com.ourbrander.loader.XmlLoader;
 	import com.ourbrander.utils.Utils;
-	import com.ourbrander.xmlObject.xmlObj;
+ 
+	import components.SimpleBtn;
+	import components.TileBox;
 	import data.MapData;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.utils.getDefinitionByName;
 	import maps.Terrain;
+	import maps.TerrainManager;
 	import pages.BasicPage;
 	
 	/**
@@ -24,7 +29,9 @@ package test
 		private var loader:EasyLoader
 		private var terrain:Terrain
 		private var map:MapData;
-		private var xmlData:xmlObj
+		private var xmlData:XmlLoader
+		
+		private var _terrainManager:TerrainManager
 		public function MapTest() 
 		{
 			
@@ -32,7 +39,7 @@ package test
 
 		override protected function init():void 
 		{
-			xmlData= new xmlObj();
+			xmlData= new XmlLoader();
 			
 			xmlData.addEventListener(Event.COMPLETE,onConfigLoaded)
 			xmlData.loadXML("assets.xml");
@@ -72,7 +79,51 @@ package test
 		}
 		
 		private function run():void {
-			trace("run");
+			
+			
+	
+			//init game assets, so we can use it. do it before create a map
+			_terrainManager = TerrainManager.getInstance();
+			_terrainManager.addBgs(_dataManager.data.gameAssets.bgs.item);
+			_terrainManager.addBuilds(_dataManager.data.gameAssets.builds.item);
+			_terrainManager.addMaps(_dataManager.data.gameAssets.maps.map);
+			
+			trace("builds:" + _terrainManager.getBuilds());
+			trace("bgs:" + _terrainManager.getBgs());
+			trace("map:" + _terrainManager.getMaps());
+			
+			
+			//create terrain
+			terrain = new Terrain(600, 600);
+			terrain.autoFit = true;
+			terrain.tileSkin = "tileDefaultSkin";
+			terrain.createMap(_terrainManager.getMapById(0));
+			addChild(terrain);
+			
+			
+			var btn:SimpleBtn =Utils.getObj("EditorToolBtn") as SimpleBtn
+			btn.setText( { text:"建筑",embed:"false" } )
+			addChild(btn);
+			
+			btn.x = 100
+			btn.y = 100;
+			
+			
+			var tileList:TileBox = new TileBox();
+			tileList.displayArea(140, 100);
+			for (var i:int; i < 10;i++ ) {
+				var mc:Sprite = Utils.getObj("block02") as Sprite;
+				tileList.addTile(mc);
+				
+			
+			}
+			
+			tileList.x = 200;
+			tileList.y=200
+			addChild(tileList);
+			
+			
+			
 		}
 		
 	}

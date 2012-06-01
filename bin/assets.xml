@@ -5,11 +5,15 @@
 		
 	</basic>
 	<game>
+		<item alias="basicAssets">basicAssets.swf</item>
 		<item alias="gameAssets">gameAssets.swf</item>
 	</game>
 </assets>
 <gameAssets>
-	<bg><![CDATA[bg01]]></bg>
+	<bgs>
+		<item id="0" skinId="bg01" ></item>
+
+	</bgs>
 	<!--
 		across : if this build can be across, set it to true
 		
@@ -21,17 +25,20 @@
 		
 		friction: make the player move slow or faster.
 		
+		notice: id start from 1, 0 is mean no build on the tile.
 		
 	-->
 	<builds>
-		
-		<item id="block01" across="false" depth="1" life="0" defence="0" friction="0"></item>
-		<item id="block02" across="false" depth="1"></item>
-		<item id="block03" across="false" depth="1"></item>
+		<item id="1" skinId="block01" across="false" depth="1" life="0" defence="0" friction="0"></item>
+		<item id="2" skinId="block02" across="false" depth="1"></item>
+		<item id="3" skinId="block03" across="false" depth="1"></item>
 	</builds>
-</gameAssets>
-<maps>
-	<!-- format: map[0] is column, map[1] is row. others are tiles. map[n]'s type is int. if map[n] =0 is mean no build here. can be across, if map[n] is a int and more than 0, can find -->
-	<map><![CDATA[]]></map>
+	
+	<maps>
+	<!-- format:  map[0] is name, map[1] is column, map[2] is row. others are tiles. , map[4] is where tiles start, default is 3, map[n]'s type is int. if map[n] =0 is mean no build here. can be across, if map[n] is a int and more than 0, can find -->
+	<map id="0"><![CDATA[default map,3,3,4,0,2,0,3,0,3,1,0,2]]></map>
+	<map id="1"><![CDATA[default map,3,3,4,1,2,0,0,2,0,1,0,2]]></map>
 </maps>
+</gameAssets>
+
 </data>

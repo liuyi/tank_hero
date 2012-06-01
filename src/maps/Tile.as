@@ -23,7 +23,8 @@ package maps
 		public var id:int;
 		public var accross:Boolean
 		public var build:Build
-		public var acceptBuildType:int
+		public var buildType:int
+		public var acceptBuildType:Vector.<int>
 		protected var _x:Number;
 		protected var _y:Number;
 		

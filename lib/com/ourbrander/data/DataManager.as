@@ -1,6 +1,6 @@
 ﻿package com.ourbrander.data 
 {
-	import com.ourbrander.xmlObject.xmlFrame;
+
 	import flash.events.EventDispatcher;
 	import flash.text.StyleSheet;
 	/**
